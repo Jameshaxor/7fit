@@ -6,7 +6,7 @@ const features = [
   { icon: Award, title: 'Certified Coaches', text: 'Internationally certified trainers obsessed with your goals.' },
   { icon: HeartPulse, title: 'Personalized Plans', text: 'Custom workout & diet plans tailored to your body.' },
   { icon: Wind, title: 'AC + Hygiene', text: 'Fully air-conditioned, sanitized space designed for comfort.' },
-  { icon: Users, title: 'Strong Community', text: '5,000+ members who push each other to be stronger every day.' },
+  { icon: Users, title: 'Strong Community', text: 'A close-knit community of members who push each other to be stronger every day.' },
   { icon: Zap, title: 'Energy That Hits', text: 'Motivating playlists, vibrant lighting — every session feels electric.' },
 ]
 
@@ -34,8 +34,8 @@ export default function About() {
 
             {/* Floating accent card */}
             <div className="absolute -bottom-8 right-2 sm:-right-6 lg:-right-10 bg-brand-400 text-ink-950 p-4 sm:p-6 rounded-2xl shadow-[0_20px_60px_-15px_rgba(204,255,0,0.5)] max-w-[200px] sm:max-w-[240px] animate-float">
-              <div className="font-display text-4xl sm:text-6xl leading-none">5K+</div>
-              <div className="uppercase tracking-[0.2em] text-[10px] sm:text-xs mt-2 font-bold">Lives Transformed</div>
+              <div className="font-display text-4xl sm:text-6xl leading-none">300+</div>
+              <div className="uppercase tracking-[0.2em] text-[10px] sm:text-xs mt-2 font-bold">Active Members</div>
             </div>
 
             {/* Floating glass badge top-left */}

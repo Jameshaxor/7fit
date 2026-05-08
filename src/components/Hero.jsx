@@ -85,10 +85,11 @@ export default function Hero() {
             style={{ animationDelay: '0.55s' }}
           >
             {[
-              { to: 5000, suffix: '+', l: 'Members' },
-              { to: 15, suffix: '+', l: 'Coaches' },
-              { to: 50, suffix: '+', l: 'Equipment' },
-              { to: '24/7', l: 'Access' },
+              // PLACEHOLDER STATS — ask owner for real numbers before launch
+              { to: 300, suffix: '+', l: 'Members' },
+              { to: 6, suffix: '+', l: 'Coaches' },
+              { to: 60, suffix: '+', l: 'Equipment' },
+              { to: '5★', l: 'Reviews' },
             ].map((s) => (
               <div
                 key={s.l}

@@ -101,13 +101,13 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" v
   <!-- Right column: stats -->
   <g transform="translate(1080, 130)">
     <text x="0" y="0" font-family="Impact, 'Arial Black', sans-serif"
-          font-size="62" font-weight="900" fill="#ccff00" text-anchor="end">5K+</text>
+          font-size="62" font-weight="900" fill="#ccff00" text-anchor="end">300+</text>
     <text x="0" y="28" font-family="Inter, Arial, sans-serif"
           font-size="11" fill="#ffffff" fill-opacity="0.55"
-          text-anchor="end" letter-spacing="2.5">LIVES TRANSFORMED</text>
+          text-anchor="end" letter-spacing="2.5">ACTIVE MEMBERS</text>
 
     <text x="0" y="130" font-family="Impact, 'Arial Black', sans-serif"
-          font-size="62" font-weight="900" fill="#ccff00" text-anchor="end">15+</text>
+          font-size="62" font-weight="900" fill="#ccff00" text-anchor="end">6+</text>
     <text x="0" y="158" font-family="Inter, Arial, sans-serif"
           font-size="11" fill="#ffffff" fill-opacity="0.55"
           text-anchor="end" letter-spacing="2.5">EXPERT COACHES</text>
