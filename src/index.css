@@ -110,6 +110,19 @@
   }
 }
 
+/* Premium keyboard focus ring — only on keyboard nav, never on mouse click */
+*:focus { outline: none; }
+*:focus-visible {
+  outline: 2px solid #ccff00;
+  outline-offset: 3px;
+  border-radius: 4px;
+  transition: outline-offset 0.15s ease;
+}
+/* Tighter offset for pill / round buttons so the ring hugs the shape */
+button:focus-visible, a:focus-visible, [role="button"]:focus-visible {
+  outline-offset: 2px;
+}
+
 /* Skip painting/layout for off-screen sections (huge scroll perf win) */
 main > section {
   content-visibility: auto;

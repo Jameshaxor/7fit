@@ -73,9 +73,12 @@ export default function Trainers() {
                   <Award className="w-4 h-4 text-brand-400" />
                 </div>
 
-                {/* Hover IG */}
+                {/* Hover IG → Google Maps until owner shares real handles */}
                 <a
-                  href="#"
+                  href="https://www.google.com/maps/place/7+Fit+Gym/@23.3970637,85.3143749,17z"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Connect with ${t.name}`}
                   className="absolute bottom-4 right-4 w-10 h-10 rounded-full bg-brand-400 flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-3 group-hover:translate-y-0 transition duration-500 shadow-[0_0_30px_rgba(204,255,0,0.5)]"
                 >
                   <Instagram className="w-4 h-4 text-ink-950" />

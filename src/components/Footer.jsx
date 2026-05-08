@@ -20,11 +20,18 @@ export default function Footer() {
               equipment, elite coaching, unmatched energy.
             </p>
             <div className="mt-7 flex items-center gap-3">
-              {[Instagram, Facebook, Youtube].map((Icon, i) => (
+              {[
+                { Icon: Instagram, href: 'https://www.google.com/maps/place/7+Fit+Gym/@23.3970637,85.3143749,17z', label: 'Instagram' },
+                { Icon: Facebook, href: 'https://www.google.com/maps/place/7+Fit+Gym/@23.3970637,85.3143749,17z', label: 'Facebook' },
+                { Icon: Youtube, href: 'https://www.google.com/maps/place/7+Fit+Gym/@23.3970637,85.3143749,17z', label: 'YouTube' },
+              ].map(({ Icon, href, label }) => (
                 <a
-                  key={i}
-                  href="#"
-                  className="w-11 h-11 rounded-full border border-white/10 flex items-center justify-center hover:bg-brand-400 hover:border-brand-400 hover:text-ink-950 transition group"
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`7 Fit Gym on ${label}`}
+                  className="w-11 h-11 rounded-full border border-white/10 flex items-center justify-center hover:bg-brand-400 hover:border-brand-400 hover:text-ink-950 transition"
                 >
                   <Icon className="w-4 h-4" />
                 </a>
@@ -110,8 +117,22 @@ export default function Footer() {
           </a>
 
           <div className="order-3 flex gap-6">
-            <a href="#" className="hover:text-brand-400">Privacy</a>
-            <a href="#" className="hover:text-brand-400">Terms</a>
+            <a
+              href="https://www.google.com/maps/place/7+Fit+Gym/@23.3970637,85.3143749,17z"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-brand-400 transition"
+            >
+              Get Directions
+            </a>
+            <a
+              href="https://wa.me/919576080807"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-brand-400 transition"
+            >
+              Contact
+            </a>
           </div>
         </div>
       </div>

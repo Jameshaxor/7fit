@@ -9,6 +9,18 @@ export default function Contact() {
   const onChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
   const onSubmit = (e) => {
     e.preventDefault()
+    // Build a clean WhatsApp lead message and open the chat with everything pre-filled.
+    // Zero backend needed — the owner gets a real chat with name + phone + goal + message.
+    const lines = [
+      `Hi 7 Fit Gym! I'd like to book a free trial.`,
+      ``,
+      `👤 Name: ${form.name}`,
+      `📞 Phone: ${form.phone}`,
+      `🎯 Goal: ${form.goal}`,
+      form.message ? `💬 Note: ${form.message}` : null,
+    ].filter(Boolean).join('\n')
+    const url = `https://wa.me/919576080807?text=${encodeURIComponent(lines)}`
+    window.open(url, '_blank', 'noopener,noreferrer')
     setSent(true)
     setForm({ name: '', phone: '', goal: 'Weight Loss', message: '' })
     setTimeout(() => setSent(false), 4000)
