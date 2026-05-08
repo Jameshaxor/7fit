@@ -71,7 +71,7 @@ export default function Hero() {
             style={{ animationDelay: '0.4s' }}
           >
             <MagneticButton href="#contact" className="btn-primary group">
-              Claim Free Trial
+              Book a Visit
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </MagneticButton>
             <a href="#programs" className="btn-ghost">

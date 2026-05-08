@@ -28,7 +28,7 @@ const plans = [
       '2 personal training sessions',
       'Diet consultation',
       'Body composition analysis',
-      'Free trial supplements',
+      'Welcome supplement kit',
     ],
     popular: true,
   },
@@ -151,7 +151,7 @@ export default function Pricing() {
                     : 'text-white/50 hover:text-brand-400'
                 }`}
               >
-                Or claim a free trial first
+                Or message us first
               </a>
             </TiltCard>
             </Reveal>

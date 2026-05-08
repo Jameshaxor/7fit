@@ -90,11 +90,11 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" v
 
   <!-- CTA pill -->
   <g transform="translate(72, 510)">
-    <rect x="0" y="0" width="305" height="48" rx="24" fill="#ccff00"/>
-    <text x="152" y="31" font-family="Inter, Arial, sans-serif"
+    <rect x="0" y="0" width="240" height="48" rx="24" fill="#ccff00"/>
+    <text x="120" y="31" font-family="Inter, Arial, sans-serif"
           font-size="14" font-weight="900" fill="#030303"
           text-anchor="middle" letter-spacing="2.5">
-      CLAIM YOUR FREE TRIAL →
+      BOOK YOUR VISIT →
     </text>
   </g>
 

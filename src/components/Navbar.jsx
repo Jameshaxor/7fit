@@ -74,7 +74,7 @@ export default function Navbar() {
 
           <div className="hidden lg:flex items-center gap-3">
             <a href="#contact" className="btn-primary text-xs py-2.5 px-5">
-              Free Trial <ArrowRight className="w-4 h-4" />
+              Book a Visit <ArrowRight className="w-4 h-4" />
             </a>
           </div>
 
@@ -156,7 +156,7 @@ export default function Navbar() {
               onClick={close}
               className="btn-primary w-full justify-center mb-4"
             >
-              Claim Free Trial <ArrowRight className="w-4 h-4" />
+              Book a Visit <ArrowRight className="w-4 h-4" />
             </a>
             <div className="grid grid-cols-2 gap-2">
               <a

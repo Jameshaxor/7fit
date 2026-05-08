@@ -12,7 +12,7 @@ export default function Contact() {
     // Build a clean WhatsApp lead message and open the chat with everything pre-filled.
     // Zero backend needed — the owner gets a real chat with name + phone + goal + message.
     const lines = [
-      `Hi 7 Fit Gym! I'd like to book a free trial.`,
+      `Hi 7 Fit Gym! I'd like to book a visit and learn more about the membership.`,
       ``,
       `👤 Name: ${form.name}`,
       `📞 Phone: ${form.phone}`,
@@ -43,12 +43,13 @@ export default function Contact() {
               <span className="text-brand-400">Starts Today.</span>
             </h2>
             <p className="mt-5 sm:mt-6 text-white/70 text-base sm:text-lg max-w-md leading-relaxed">
-              Drop in for a <span className="text-white font-semibold">free trial session</span>,
-              ask us anything, or schedule a tour. We respond within 30 minutes.
+              <span className="text-white font-semibold">Walk in for a tour</span>, meet the
+              coaches, ask us anything. We respond on WhatsApp within 30 minutes.
+            
             </p>
 
             <div className="mt-8 sm:mt-10 grid gap-3 max-w-md">
-              <a href="https://wa.me/919576080807?text=Hi!%20I'd%20like%20to%20book%20a%20free%20trial%20at%207%20Fit%20Gym." target="_blank" rel="noopener noreferrer" className="btn-whatsapp justify-center">
+              <a href="https://wa.me/919576080807?text=Hi!%20I'd%20like%20to%20visit%207%20Fit%20Gym%20and%20learn%20more." target="_blank" rel="noopener noreferrer" className="btn-whatsapp justify-center">
                 <MessageCircle className="w-5 h-5" /> WhatsApp Us
               </a>
               <a href="tel:+919576080807" className="btn-ghost justify-center">
@@ -76,7 +77,7 @@ export default function Contact() {
           >
             <div className="absolute -top-20 -right-20 w-60 h-60 bg-brand-400/20 rounded-full blur-3xl" />
             <div className="relative">
-              <h3 className="font-display text-2xl sm:text-3xl uppercase tracking-tight">Book Free Trial</h3>
+              <h3 className="font-display text-2xl sm:text-3xl uppercase tracking-tight">Book Your Visit</h3>
               <p className="text-white/50 text-xs sm:text-sm mt-1">
                 Quick 30-second form. No spam, no pressure.
               </p>
@@ -132,7 +133,7 @@ export default function Contact() {
                   />
                 </div>
                 <MagneticButton as="button" type="submit" className="btn-primary w-full justify-center">
-                  {sent ? "Got it! We'll call you soon ✓" : (<>Claim My Free Trial <Send className="w-4 h-4" /></>)}
+                  {sent ? 'Opening WhatsApp ✓' : (<>Send via WhatsApp <Send className="w-4 h-4" /></>)}
                 </MagneticButton>
               </div>
             </div>
