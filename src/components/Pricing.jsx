@@ -1,6 +1,8 @@
-import { Check, Sparkles } from 'lucide-react'
+import { useState } from 'react'
+import { Check, Sparkles, ArrowRight } from 'lucide-react'
 import Reveal from './Reveal.jsx'
 import TiltCard from './TiltCard.jsx'
+import PaymentModal from './PaymentModal.jsx'
 
 const plans = [
   {
@@ -48,6 +50,8 @@ const plans = [
 ]
 
 export default function Pricing() {
+  const [selectedPlan, setSelectedPlan] = useState(null)
+
   return (
     <section id="pricing" className="py-20 sm:py-28 lg:py-32 bg-ink-900 relative overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-400/5 rounded-full blur-3xl" />
@@ -127,15 +131,27 @@ export default function Pricing() {
                 ))}
               </ul>
 
-              <a
-                href="#contact"
-                className={`mt-8 sm:mt-10 w-full inline-flex justify-center items-center rounded-full px-6 py-3.5 font-bold uppercase tracking-wider text-sm transition active:scale-95 ${
+              <button
+                type="button"
+                onClick={() => setSelectedPlan(p)}
+                className={`mt-8 sm:mt-10 w-full inline-flex justify-center items-center gap-2 rounded-full px-6 py-3.5 font-bold uppercase tracking-wider text-sm transition active:scale-95 group/cta ${
                   p.popular
                     ? 'bg-ink-950 text-brand-400 hover:bg-ink-900'
                     : 'bg-brand-400 text-ink-950 hover:bg-brand-300 shadow-[0_0_30px_rgba(204,255,0,0.3)]'
                 }`}
               >
-                Get Started
+                Pay ₹{p.price.toLocaleString('en-IN')}
+                <ArrowRight className="w-4 h-4 transition-transform group-hover/cta:translate-x-1" />
+              </button>
+              <a
+                href="#contact"
+                className={`mt-3 inline-flex items-center justify-center gap-1.5 w-full text-[11px] uppercase tracking-[0.2em] font-medium transition ${
+                  p.popular
+                    ? 'text-ink-950/70 hover:text-ink-950'
+                    : 'text-white/50 hover:text-brand-400'
+                }`}
+              >
+                Or claim a free trial first
               </a>
             </TiltCard>
             </Reveal>
@@ -146,6 +162,12 @@ export default function Pricing() {
           Couple plan & student discount available · GST extra · No registration fee
         </p>
       </div>
+
+      <PaymentModal
+        open={!!selectedPlan}
+        plan={selectedPlan}
+        onClose={() => setSelectedPlan(null)}
+      />
     </section>
   )
 }
