@@ -15,9 +15,15 @@ export default function useTilt({ max = 8, scale = 1.02 } = {}) {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
     el.style.transformStyle = 'preserve-3d'
-    el.style.transition = 'transform 300ms cubic-bezier(.16,1,.3,1)'
+    el.style.willChange = 'transform'
 
+    const onEnter = () => {
+      // Only transition on enter/leave so cursor tracking stays snappy mid-hover
+      el.style.transition = 'transform 400ms cubic-bezier(.16,1,.3,1)'
+    }
     const onMove = (e) => {
+      // Kill the transition during active tracking so transform follows cursor 1:1
+      el.style.transition = 'none'
       const r = el.getBoundingClientRect()
       const px = (e.clientX - r.left) / r.width
       const py = (e.clientY - r.top) / r.height
@@ -28,17 +34,21 @@ export default function useTilt({ max = 8, scale = 1.02 } = {}) {
       el.style.transform = `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg) scale(${scale})`
     }
     const onLeave = () => {
+      el.style.transition = 'transform 500ms cubic-bezier(.16,1,.3,1)'
       el.style.setProperty('--rx', '0deg')
       el.style.setProperty('--ry', '0deg')
       el.style.transform = ''
     }
 
+    el.addEventListener('pointerenter', onEnter)
     el.addEventListener('pointermove', onMove)
     el.addEventListener('pointerleave', onLeave)
     return () => {
+      el.removeEventListener('pointerenter', onEnter)
       el.removeEventListener('pointermove', onMove)
       el.removeEventListener('pointerleave', onLeave)
       el.style.transform = ''
+      el.style.willChange = ''
     }
   }, [max, scale])
 

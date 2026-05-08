@@ -110,6 +110,19 @@
   }
 }
 
+/* Skip painting/layout for off-screen sections (huge scroll perf win) */
+main > section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 1200px;
+}
+
+/* Promote heavy decorative blur layers to their own GPU layer
+   so they don't trigger repaints when content above them changes */
+.blur-3xl, .blur-2xl {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
 /* Lenis smooth scroll integration */
 html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }

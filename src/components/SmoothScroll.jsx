@@ -11,11 +11,11 @@ export default function SmoothScroll({ children }) {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
     const lenis = new Lenis({
-      lerp: 0.1,            // lower = snappier, higher = floatier (0.08–0.12 sweet spot)
+      lerp: 0.085,           // slightly snappier — feels more locked-in than floaty
       smoothWheel: true,
-      wheelMultiplier: 1.1,  // slight boost so wheel scroll covers more ground per tick
-      touchMultiplier: 1.5,
-      syncTouch: false,
+      wheelMultiplier: 1,
+      touchMultiplier: 2,
+      syncTouch: false,      // let mobile use native scroll (already buttery on touch)
     })
 
     let rafId = 0

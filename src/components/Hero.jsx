@@ -1,36 +1,9 @@
-import { useEffect, useRef } from 'react'
 import { ArrowRight, MapPin, Star } from 'lucide-react'
 import AnimatedCounter from './AnimatedCounter.jsx'
 import MagneticButton from './MagneticButton.jsx'
 import Grain from './Grain.jsx'
 
 export default function Hero() {
-  const bgRef = useRef(null)
-
-  // Subtle parallax — desktop only, respects prefers-reduced-motion
-  useEffect(() => {
-    const mqDesktop = window.matchMedia('(min-width: 1024px)')
-    const mqReduce = window.matchMedia('(prefers-reduced-motion: reduce)')
-    if (!mqDesktop.matches || mqReduce.matches) return
-
-    let raf = 0
-    const onScroll = () => {
-      if (raf) return
-      raf = requestAnimationFrame(() => {
-        if (bgRef.current) {
-          const y = window.scrollY
-          bgRef.current.style.transform = `translate3d(0, ${y * 0.25}px, 0) scale(1.08)`
-        }
-        raf = 0
-      })
-    }
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => {
-      window.removeEventListener('scroll', onScroll)
-      if (raf) cancelAnimationFrame(raf)
-    }
-  }, [])
-
   return (
     <section
       id="home"
@@ -39,10 +12,9 @@ export default function Hero() {
       {/* Background image (parallax) */}
       <div className="absolute inset-0">
         <img
-          ref={bgRef}
           src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=2000&q=80"
           alt="7 Fit Gym interior"
-          className="w-full h-full object-cover scale-105 will-change-transform"
+          className="w-full h-full object-cover scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-ink-950 via-ink-950/85 to-ink-950/40" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-transparent to-ink-950/60" />
@@ -50,9 +22,9 @@ export default function Hero() {
         <Grain opacity={0.12} blend="overlay" />
       </div>
 
-      {/* Glow blobs */}
-      <div className="absolute -top-32 -right-20 w-[500px] h-[500px] bg-brand-400/20 rounded-full blur-3xl animate-pulse-slow" />
-      <div className="absolute bottom-0 left-1/4 w-72 h-72 bg-brand-500/10 rounded-full blur-3xl animate-pulse-slow" />
+      {/* Glow blobs (static — animating blur-3xl is expensive) */}
+      <div className="absolute -top-32 -right-20 w-[500px] h-[500px] bg-brand-400/20 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-1/4 w-72 h-72 bg-brand-500/10 rounded-full blur-3xl" />
 
       <div className="container-x relative z-10">
         <div className="max-w-5xl">
