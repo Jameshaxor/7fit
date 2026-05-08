@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { QRCodeSVG } from 'qrcode.react'
 import { X, Copy, Check, Smartphone, ScanLine, MessageCircle, ShieldCheck } from 'lucide-react'
 
@@ -73,7 +74,9 @@ export default function PaymentModal({ open, onClose, plan }) {
     }
   }
 
-  return (
+  if (typeof document === 'undefined') return null
+
+  return createPortal(
     <div
       className={`fixed inset-0 z-[60] transition-all duration-300 ${
         open ? 'visible opacity-100' : 'invisible opacity-0 pointer-events-none'
@@ -208,6 +211,7 @@ export default function PaymentModal({ open, onClose, plan }) {
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   )
 }
