@@ -95,22 +95,29 @@ export default function PaymentModal({ open, onClose, plan }) {
           open ? 'translate-y-0' : 'translate-y-8'
         }`}
       >
-        <div className="relative w-full max-w-md bg-ink-900 sm:rounded-3xl rounded-t-3xl border border-white/10 shadow-2xl overflow-hidden">
-          {/* Decorative lime glow */}
-          <div className="absolute -top-20 -right-10 w-48 h-48 bg-brand-400/20 rounded-full blur-3xl pointer-events-none" />
-
-          {/* Close */}
+        <div
+          className="relative w-full max-w-md bg-ink-900 sm:rounded-3xl rounded-t-3xl border border-white/10 shadow-2xl flex flex-col"
+          style={{ maxHeight: 'min(90vh, 90svh)' }}
+        >
+          {/* Sticky close (stays reachable while content scrolls) */}
           <button
             onClick={onClose}
-            className="absolute top-3 right-3 w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center text-white/70 hover:text-white transition z-10"
+            className="absolute top-3 right-3 w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center text-white/70 hover:text-white transition z-20 backdrop-blur-sm"
             aria-label="Close payment dialog"
           >
             <X className="w-5 h-5" />
           </button>
 
-          <div className="relative p-6 sm:p-8">
+          {/* Scrollable content */}
+          <div
+            data-lenis-prevent
+            className="relative flex-1 overflow-y-auto overscroll-contain p-6 sm:p-8 pb-safe"
+          >
+            {/* Decorative lime glow (clipped by parent radius; positioned inside scroll so it doesn't cover close btn) */}
+            <div className="absolute -top-20 -right-10 w-48 h-48 bg-brand-400/20 rounded-full blur-3xl pointer-events-none" />
+
             {/* Header */}
-            <div className="text-center mb-6">
+            <div className="relative text-center mb-6">
               <div className="inline-flex items-center gap-1.5 bg-brand-400/10 text-brand-400 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-[0.25em] mb-3">
                 <ShieldCheck className="w-3 h-3" />
                 Secure UPI
