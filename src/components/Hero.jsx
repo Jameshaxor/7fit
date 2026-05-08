@@ -22,9 +22,12 @@ export default function Hero() {
         <Grain opacity={0.12} blend="overlay" />
       </div>
 
-      {/* Glow blobs (static — animating blur-3xl is expensive) */}
-      <div className="absolute -top-32 -right-20 w-[500px] h-[500px] bg-brand-400/20 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-1/4 w-72 h-72 bg-brand-500/10 rounded-full blur-3xl" />
+      {/* Glow blobs — opacity animation only; layers are GPU-promoted via index.css */}
+      <div className="absolute -top-32 -right-20 w-[500px] h-[500px] bg-brand-400/20 rounded-full blur-3xl animate-pulse-slow" />
+      <div
+        className="absolute bottom-0 left-1/4 w-72 h-72 bg-brand-500/10 rounded-full blur-3xl animate-pulse-slow"
+        style={{ animationDelay: '-2s' }}
+      />
 
       <div className="container-x relative z-10">
         <div className="max-w-5xl">
